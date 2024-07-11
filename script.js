@@ -63,12 +63,12 @@ boton.onclick = () => {
 tarjeta.onkeyup = (e) => {
   console.log(isNaN(parseInt(e.target.value)));
   if (isNaN(parseInt(e.target.value))) {
-    document.querySelector('.texto').innerHTML = 'Debe ingresar solo numeros';
-    document.querySelector('.texto').style.color = 'red';
+    document.querySelector(".texto").innerHTML = "Debe ingresar solo numeros";
+    document.querySelector(".texto").style.color = "red";
     tarjeta.value = "";
   } else {
     console.log(e.target.value.charAt(0));
-    document.querySelector('.texto').innerHTML = '';
+    document.querySelector(".texto").innerHTML = "";
     if (parseInt(e.target.value.charAt(0)) == 4) {
       document.querySelector(
         ".imgTarjeta"
@@ -77,7 +77,7 @@ tarjeta.onkeyup = (e) => {
       document.querySelector(
         ".imgTarjeta"
       ).innerHTML = `<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj7F23KjYm6Tmnn43i08hyCXqGo5-JsoMcNg&s'>`;
-    } else if (parseInt(e.target.value.charAt(0)) == 3){
+    } else if (parseInt(e.target.value.charAt(0)) == 3) {
       document.querySelector(
         ".imgTarjeta"
       ).innerHTML = `<img width='200' src='https://webshoptiger.com/wp-content/uploads/2023/09/American-Express-Color.png'>`;
