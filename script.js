@@ -1,6 +1,7 @@
 const tarjeta = document.querySelector("#tarjeta");
 const boton = document.querySelector(".boton");
 const imagen = document.querySelector("img");
+const div = document.querySelector(".imgTarjeta");
 
 let numero = [];
 let luhn = [];
@@ -57,4 +58,29 @@ boton.onclick = () => {
   }
   console.log(luhn);
   // Nota: Para saber si una tarjeta es Visa o Mastercard saber que las tarjetas Visa empiezan por 4, las tarjetas Mastercard empiezan por 5 y las tarjetas American Express siempre empiezan por 3
+};
+
+tarjeta.onkeyup = (e) => {
+  console.log(isNaN(parseInt(e.target.value)));
+  if (isNaN(parseInt(e.target.value))) {
+    document.querySelector('.texto').innerHTML = 'Debe ingresar solo numeros';
+    document.querySelector('.texto').style.color = 'red';
+    tarjeta.value = "";
+  } else {
+    console.log(e.target.value.charAt(0));
+    document.querySelector('.texto').innerHTML = '';
+    if (parseInt(e.target.value.charAt(0)) == 4) {
+      document.querySelector(
+        ".imgTarjeta"
+      ).innerHTML = `<img width='200' src='https://www.visa.com.co/dam/VCOM/regional/lac/SPA/Default/Partner%20With%20Us/Info%20for%20Partners/Info%20for%20Small%20Business/visa-pos-800x400.jpg'>`;
+    } else if (parseInt(e.target.value.charAt(0)) == 5) {
+      document.querySelector(
+        ".imgTarjeta"
+      ).innerHTML = `<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj7F23KjYm6Tmnn43i08hyCXqGo5-JsoMcNg&s'>`;
+    } else if (parseInt(e.target.value.charAt(0)) == 3){
+      document.querySelector(
+        ".imgTarjeta"
+      ).innerHTML = `<img width='200' src='https://webshoptiger.com/wp-content/uploads/2023/09/American-Express-Color.png'>`;
+    }
+  }
 };
